@@ -11,7 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@maxday/random-number": "0.0.1",
+    "@maxday/random-number": "0.0.2",
     "express": "^4.17.1"
   },
   "devDependencies": {
