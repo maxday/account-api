@@ -6,14 +6,12 @@ jobs:
   publish:
     name: Run tests
     runs-on: ubuntu-latest
+    env:
+      AUTH_TOKEN: ${{ secrets.AUTH_TOKEN }}
     steps:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Install
         run: npm install
-        env:
-          AUTH_TOKEN: ${{ secrets.AUTH_TOKEN }}
       - name: Test
         run: npm test
-        env:
-          AUTH_TOKEN: ${{ secrets.AUTH_TOKEN }}
