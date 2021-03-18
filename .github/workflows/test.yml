@@ -15,3 +15,5 @@ jobs:
           AUTH_TOKEN: ${{ secrets.AUTH_TOKEN }}
       - name: Test
         run: npm test
+        env:
+          AUTH_TOKEN: ${{ secrets.AUTH_TOKEN }}
