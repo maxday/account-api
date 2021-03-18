@@ -1,17 +1,21 @@
 {
-  "name": "testExpress",
+  "name": "my-service",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "start": "node app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@maxday/random-number": "0.0.1",
+    "chai": "^4.3.4",
     "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "mocha": "^8.3.2"
   }
 }
