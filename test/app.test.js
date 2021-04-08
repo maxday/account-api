@@ -1,11 +1,24 @@
-const assert = require('chai').assert;
-const randomNumber = require('@maxday/random-number');
-randomNumber.generateNumber
-describe('Random number test', function() {
-  describe('randomNumber.generateNumber', function() {
-    it('should return a number between 0 and 1', function() {
-      assert.isAtLeast(randomNumber.generateNumber(), 0);
-      assert.isAtMost(randomNumber.generateNumber(), 1);
-    });
+const request = require('supertest');
+const assert = require('assert');
+const app = require('../app');
+
+describe('GET /accounts/:accountId', function(){
+  it('should send 404 since the accountNumber is invalid', function(done){
+    request(app)
+      .get('/accounts/1234')
+      .set('Accept', 'application/json')
+      .expect(404, done);
   });
+
+  it('should send 404 since the accountNumber is invalid', function(done){
+    request(app)
+      .get('/accounts/1234567')
+      .set('Accept', 'application/json')
+      .expect(200)
+      .then(response => {
+        assert(response.body.hasOwnProperty('balance'),  true);
+        done();
+    })
+    .catch(err => done(err))
+  })
 });

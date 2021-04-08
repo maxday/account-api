@@ -1,14 +1,15 @@
 const express = require('express');
 const app = express();
-const randomNumber = require('@maxday/random-number');
-const port = 3000
+const validator = require('@maxday/account-number-validator');
 
-app.get('/', (req, res) => {
-  res.send(`Hello World, here is my random number : ${getRandomNumer}`);
-})
+app.get('/accounts/:accountId', (req, res) => {
+  if(validator.isValidAccount(req.params.accountId)) {
+    const balance = Math.random() * 10e3;
+    return res.send({
+      balance
+    });
+  }
+  return res.sendStatus(404);
+});
 
-app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`)
-})
-
-const getRandomNumer = () => randomNumber.generateNumber();
+module.exports = app;

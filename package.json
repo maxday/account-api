@@ -1,21 +1,21 @@
 {
-  "name": "my-service",
+  "name": "account-api",
   "version": "1.0.0",
-  "description": "",
+  "description": "a simple account api",
   "main": "index.js",
   "scripts": {
-    "start": "node app.js",
-    "test": "mocha"
+    "start": "node listen.js",
+    "test": "jest"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@maxday/random-number": "0.0.1",
+    "@maxday/account-number-validator": "1.0.0",
     "express": "^4.17.1"
   },
   "devDependencies": {
-    "chai": "^4.3.4",
-    "mocha": "^8.3.2"
+    "jest": "^26.6.3",
+    "supertest": "^6.1.3"
   }
 }
