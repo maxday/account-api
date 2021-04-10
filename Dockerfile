@@ -4,7 +4,7 @@ ADD . /app
 WORKDIR /app
 
 RUN npm ci --only=production
-
+RUN rm /app/.npmrc
 FROM gcr.io/distroless/nodejs:10
 COPY --from=build-env /app /app
 WORKDIR /app
