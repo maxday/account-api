@@ -12,4 +12,8 @@ app.get('/accounts/:accountId', (req, res) => {
   return res.sendStatus(404);
 });
 
+app.get('/health', (_, res) => {
+  return res.sendStatus(200);
+});
+
 module.exports = app;
