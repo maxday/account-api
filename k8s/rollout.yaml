@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
       - name: account-api
-        image: maxday/account-api:1.0.0
+        image: maxday/account-api:1.0.2
         ports:
         - name: http
           containerPort: 3000
