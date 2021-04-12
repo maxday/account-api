@@ -4,7 +4,7 @@
   "description": "a simple account api",
   "main": "index.js",
   "scripts": {
-    "start": "node listen.js",
+    "start": "node start.js",
     "test": "jest"
   },
   "keywords": [],

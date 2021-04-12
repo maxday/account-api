@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const validator = require('@maxday/account-number-validator');
+const package = require('./package');
 
 app.get('/accounts/:accountId', (req, res) => {
   if(validator.isValidAccount(req.params.accountId)) {
@@ -14,6 +15,12 @@ app.get('/accounts/:accountId', (req, res) => {
 
 app.get('/health', (_, res) => {
   return res.sendStatus(200);
+});
+
+app.get('/version', (_, res) => {
+  return res.send({
+    version: package.version
+  });
 });
 
 module.exports = app;
