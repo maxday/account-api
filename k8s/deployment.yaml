@@ -21,7 +21,7 @@ spec:
         app: account-api
     spec:
       containers:
-      - image: maxday/account-api:1.0.0
+      - image: maxday/account-api:1.0.1
         imagePullPolicy: Always
         name: account-api
         ports:
