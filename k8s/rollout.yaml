@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
       - name: account-api
-        image: maxday/account-api:$GITHUB_SHA
+        image: maxday/account-api:-7170ee57f987e7c18beb8bbefc9bc7b8c5048575
         ports:
         - name: http
           containerPort: 3000
