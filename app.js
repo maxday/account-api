@@ -22,7 +22,7 @@ app.get('/health', (_, res) => {
 
 app.get('/version', (_, res) => {
   return res.send({
-    version: pkg.version
+    version: pkg.versionTag
   });
 });
 
