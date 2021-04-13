@@ -27,8 +27,7 @@ jobs:
           PACKAGE_VERSION=$(cat ./package.json | grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[",]//g' | tr -d '[[:space:]]')
           docker build --build-arg AUTH_TOKEN=${AUTH_TOKEN} -t maxday/account-api:${PACKAGE_VERSION}-${GITHUB_SHA} .
           docker push maxday/account-api:${PACKAGE_VERSION}-${GITHUB_SHA}
-      - name: Update deploy file
-        run: sed "s/COMMIT_SHA/${PACKAGE_VERSION}-${GITHUB_SHA}/g" k8s/rollout.yaml.tpl > k8s/rollout.yaml
+          sed "s/COMMIT_SHA/${PACKAGE_VERSION}-${GITHUB_SHA}/g" k8s/rollout.yaml.tpl > k8s/rollout.yaml
       - name: Commit files
         run: |
           git config --local user.email "github-actions-bot@maximedavid.fr"
