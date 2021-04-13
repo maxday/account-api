@@ -28,7 +28,7 @@ jobs:
           docker build --build-arg AUTH_TOKEN=${AUTH_TOKEN} -t maxday/account-api:${PACKAGE_VERSION} .
           docker push maxday/account-api:${PACKAGE_VERSION}
       - name: Update deploy file
-        run: sed 's/COMMIT_SHA/$GITHUB_SHA/g' k8s/rollout.yaml.spec > k8s/rollout.yaml
+        run: sed 's/COMMIT_SHA/$GITHUB_SHA/g' k8s/rollout.yaml.tpl > k8s/rollout.yaml
       - name: Commit files
         run: |
           git config --local user.email "github-actions-bot@maximedavid.fr"
