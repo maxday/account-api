@@ -1,7 +1,17 @@
 const express = require('express');
+const tracer = require('dd-trace').init();
 const app = express();
 const validator = require('@maxday/account-number-validator');
 const pkg = require('./package');
+
+const ddOptions = {
+  'response_code':true,
+  'tags': ['app:account-api']
+}
+
+const connectDatadog = require('connect-datadog')(ddOptions);
+
+app.use(connectDatadog);
 
 app.get('/accounts/:accountId', (req, res) => {
   if(validator.isValidAccount(req.params.accountId)) {

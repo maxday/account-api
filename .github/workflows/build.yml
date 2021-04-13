@@ -1,6 +1,8 @@
 name: 'Run tests, dockerize and publish'
 on:
   push:
+    paths-ignore:
+      - 'k8s/**'
     
 jobs:
   publish:
@@ -25,3 +27,16 @@ jobs:
           PACKAGE_VERSION=$(cat ./package.json | grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[",]//g' | tr -d '[[:space:]]')
           docker build --build-arg AUTH_TOKEN=${AUTH_TOKEN} -t maxday/account-api:${PACKAGE_VERSION} .
           docker push maxday/account-api:${PACKAGE_VERSION}
+      - name: Update deploy file
+        run: sed 's/COMMIT_SHA/$GITHUB_SHA/g' k8s/rollout.yaml.spec > k8s/rollout.yaml
+      - name: Commit files
+        run: |
+          git config --local user.email "github-actions-bot@maximedavid.fr"
+          git config --local user.name "github-actions-bot"
+          git add k8s/rollout.yaml
+          git commit -m "Update version in deployment file"
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: main
