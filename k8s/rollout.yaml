@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
-  name: account-api
+  name: account
 spec:
   replicas: 2
   strategy:
@@ -12,14 +12,14 @@ spec:
   revisionHistoryLimit: 2
   selector:
     matchLabels:
-      app: account-api
+      app: account
   template:
     metadata:
       labels:
-        app: account-api
+        app: account
     spec:
       containers:
-      - name: account-api
+      - name: account
         image: maxday/account-api:-7170ee57f987e7c18beb8bbefc9bc7b8c5048575
         ports:
         - name: http
