@@ -1,6 +1,6 @@
 {
   "name": "account-api",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "a simple account api",
   "main": "index.js",
   "scripts": {
