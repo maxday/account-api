@@ -1,9 +1,11 @@
 name: 'Run tests, dockerize and publish'
 on:
   push:
+    branch:
+      - main
     paths-ignore:
       - 'k8s/**'
-    
+
 jobs:
   publish:
     name: Run tests
