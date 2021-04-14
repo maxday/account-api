@@ -11,7 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@maxday/account-number-validator": "1.0.14",
+    "@maxday/account-number-validator": "1.0.15",
     "connect-datadog": "0.0.9",
     "dd-trace": "^0.32.0",
     "express": "^4.17.1"
