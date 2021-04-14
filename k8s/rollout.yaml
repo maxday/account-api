@@ -15,7 +15,7 @@ spec:
           value: account-api
       steps:
       - setWeight: 50
-      - pause: {duration: 2m}
+      - pause: {duration: 90s}
   revisionHistoryLimit: 2
   selector:
     matchLabels:
