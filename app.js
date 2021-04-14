@@ -13,6 +13,7 @@ const connectDatadog = require('connect-datadog')(ddOptions);
 app.use(connectDatadog);
 
 app.get('/accounts/:accountId', (req, res) => {
+  throw "Error";
   if(validator.isValidAccount(req.params.accountId)) {
     const balance = Math.random() * 10e3;
     return res.send({

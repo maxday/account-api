@@ -14,4 +14,4 @@ spec:
       datadog:
         interval: 2m
         query: |
-          sum:trace.express.request.hits.by_http_status{http.status_code:404,service:{{args.service-name}}}
+          sum:trace.express.request.hits.by_http_status{http.status_code:500,service:{{args.service-name}}}
