@@ -16,6 +16,7 @@ jobs:
       - name: Test
         run: npm test
   publish:
+    needs: test
     name: Dockerize and publish
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main'
