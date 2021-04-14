@@ -6,13 +6,6 @@ spec:
   replicas: 2
   strategy:
     canary:
-      analysis:
-        templates:
-        - templateName: error-rate
-        startingStep: 1
-        args:
-        - name: service-name
-          value: account-api
       steps:
       - setWeight: 50
       - pause: {}
@@ -27,7 +20,7 @@ spec:
     spec:
       containers:
       - name: account
-        image: maxday/account-api:1.0.3-f42dd37732cbe56cc7260cd52f57496b221ae835
+        image: maxday/account-api:1.0.3-93226d070eac717a04e0867e6fdf79427c53d48a
         env:
           - name: DD_AGENT_HOST
             valueFrom:
