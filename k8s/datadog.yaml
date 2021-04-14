@@ -8,10 +8,10 @@ spec:
   metrics:
   - name: error-rate
     interval: 1m
-    successCondition: result <= 3
+    successCondition: result <= 1
     failureLimit: 1
     provider:
       datadog:
         interval: 1m
         query: |
-          sum:trace.express.request.hits.by_http_status{http.status_code:500,service:{{args.service-name}}}
+          avg:trace.express.request.hits.by_http_status{http.status_class:5xx,service:{{args.service-name}}}
