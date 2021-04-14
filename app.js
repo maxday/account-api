@@ -4,7 +4,6 @@ const app = express();
 const validator = require('@maxday/account-number-validator');
 const pkg = require('./package');
 
-//Datadog config
 const ddOptions = {
   'response_code':true,
   'tags': ['app:account-api']
