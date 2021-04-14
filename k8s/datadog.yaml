@@ -9,7 +9,7 @@ spec:
   - name: error-rate
     initialDelay: 1m
     interval: 1m
-    successCondition: result <= 1
+    successCondition: result <= 5
     failureLimit: 1
     provider:
       datadog:
