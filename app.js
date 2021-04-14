@@ -1,8 +1,8 @@
 const tracer = require('dd-trace').init();
 const express = require('express');
 const app = express();
-const validator = require('@maxday/account-number-validator');
-const pkg = require('./package');
+const router = require('./router');
+const port = process.env.PORT || 3000;
 
 const ddOptions = {
   'response_code':true,
@@ -11,25 +11,8 @@ const ddOptions = {
 
 const connectDatadog = require('connect-datadog')(ddOptions);
 app.use(connectDatadog);
+app.use('/', router);
 
-app.get('/accounts/:accountId', (req, res) => {
-  if(validator.isValidAccount(req.params.accountId)) {
-    const balance = Math.random() * 10e3;
-    return res.send({
-      balance
-    });
-  }
-  return res.sendStatus(404);
+app.listen(port, () => {
+    console.log(`Account-api listening on port ${port}`)
 });
-
-app.get('/health', (_, res) => {
-  return res.sendStatus(200);
-});
-
-app.get('/version', (_, res) => {
-  return res.send({
-    version: pkg.versionTag
-  });
-});
-
-module.exports = app;

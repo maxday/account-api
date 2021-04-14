@@ -1,6 +1,10 @@
 const request = require('supertest');
 const assert = require('assert');
-const app = require('../app');
+const express = require('express');
+const router = require('../router');
+
+const app = express();
+app.use('/', router);
 
 describe('GET /accounts/:accountId', function(){
   it('should send 404 since the accountNumber is invalid', function(done){

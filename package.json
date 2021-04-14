@@ -4,8 +4,8 @@
   "description": "a simple account api",
   "main": "index.js",
   "scripts": {
-    "start": "node start.js",
-    "test": "exit 0"
+    "start": "node app.js",
+    "test": "jest"
   },
   "keywords": [],
   "author": "",
