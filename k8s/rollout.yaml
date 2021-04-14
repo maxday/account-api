@@ -27,7 +27,7 @@ spec:
     spec:
       containers:
       - name: account
-        image: maxday/account-api:1.0.3-7fe32116f3ff19cb3b50eeb3c13e65829b361ea1
+        image: maxday/account-api:1.0.3-6bfaf86c1e0fd4b26ba10f81cb74c0959d5d010d
         env:
           - name: DD_AGENT_HOST
             valueFrom:
