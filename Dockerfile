@@ -6,7 +6,6 @@ WORKDIR /app
 
 RUN npm ci --only=production
 RUN rm /app/.npmrc
-RUN 'echo $VERSION > version'
 FROM gcr.io/distroless/nodejs:10
 COPY --from=build-env /app /app
 WORKDIR /app
