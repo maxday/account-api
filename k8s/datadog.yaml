@@ -14,4 +14,4 @@ spec:
       datadog:
         interval: 1m
         query: |
-          sum:trace.express.request.hits.by_http_status{http.status_class:5xx,service:{{args.service-name}}}.as_count()
+          default_zero(sum:trace.express.request.hits.by_http_status{http.status_class:5xx,service:{{args.service-name}}}.as_count())
