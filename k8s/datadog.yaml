@@ -7,11 +7,11 @@ spec:
   - name: service-name
   metrics:
   - name: error-rate
-    interval: 1m
+    interval: 2m
     successCondition: result <= 1
     failureLimit: 1
     provider:
       datadog:
-        interval: 1m
+        interval: 2m
         query: |
-          default_zero(sum:trace.express.request.hits.by_http_status{http.status_class:5xx,service:{{args.service-name}}}.as_count())
+          default_zero(sum:trace.express.request.hits.by_http_status{http.status_class:5xx,service:account-api})
