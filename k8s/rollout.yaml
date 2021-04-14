@@ -6,6 +6,13 @@ spec:
   replicas: 2
   strategy:
     canary:
+      analysis:
+        templates:
+        - templateName: error-rate
+        startingStep: 1
+        args:
+        - name: service-name
+          value: account-api
       steps:
       - setWeight: 50
       - pause: {}
