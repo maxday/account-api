@@ -7,11 +7,11 @@ spec:
   - name: service-name
   metrics:
   - name: error-rate
-    interval: 2m
-    successCondition: result <= 5
+    interval: 1m
+    successCondition: result <= 3
     failureLimit: 1
     provider:
       datadog:
-        interval: 2m
+        interval: 1m
         query: |
           sum:trace.express.request.hits.by_http_status{http.status_code:500,service:{{args.service-name}}}
