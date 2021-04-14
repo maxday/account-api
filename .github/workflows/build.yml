@@ -1,10 +1,8 @@
 name: 'Run tests, dockerize and publish'
 on:
   push:
-    branch:
-      - main
-    paths-ignore:
-      - 'k8s/**'
+    branches-ignore:
+      - dependabot
 
 jobs:
   publish:
