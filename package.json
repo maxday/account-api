@@ -13,7 +13,7 @@
   "dependencies": {
     "@maxday/account-number-validator": "1.0.17",
     "connect-datadog": "0.0.9",
-    "dd-trace": "^0.32.0",
+    "dd-trace": "^1.0.0",
     "express": "^4.17.1"
   },
   "devDependencies": {
